@@ -1,0 +1,29 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Namaste-React ",
+  "keywords": [
+    "React"
+  ],
+  "homepage": "https://github.com/tusharg-optimus/Namaste-React#readme",
+  "bugs": {
+    "url": "https://github.com/tusharg-optimus/Namaste-React/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tusharg-optimus/Namaste-React.git"
+  },
+  "license": "ISC",
+  "author": "Tushar Gupta",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
