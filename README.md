@@ -53,3 +53,9 @@ Note: We cannot use nore than one time default export/import in one file.
  (Normal JS utility functions)
 - useState() - Superpowerful State variables in react
 - useEffect()
+- useRouteError()
+
+
+# Two types of Routing 
+- Client Side Routing
+- Server Side Routing

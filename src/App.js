@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header.jsx";
 import Body from "./Components/Body.jsx";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import About from "./Components/About.jsx";
+import Contact from "./Components/Contact.jsx";
+import RestaurantMenu from "./Components/RestaurantMenu.jsx";
 
 // const restList = [resObj, resObj, resObj, resObj, resObj, resObj, resObj, resObj
 // ];
@@ -10,13 +14,51 @@ const AppLayout = () => {
     return (
         <div className="app">
             {Header()} {/* Calling the Header component inside AppLayout component */   }
-            {Body()}   {/* Calling the Body component inside AppLayout component */     }
+            {/* <Body /> */}
+            <Outlet /> {/* Placeholder for rendering the current route component */}
         </div>
     );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>); // rendering the functional component
+
+// Routing as well as Childern Routes
+root.render(
+    <BrowserRouter>
+        <Routes>
+            <Route 
+                path="/" 
+                element={<AppLayout/>} 
+                errorElement={<Error />} 
+                children={
+                    [
+                        <Route
+                             path="/" 
+                             element={<Body/>} 
+                             errorElement={<Error />} 
+                        />, 
+                        <Route 
+                            path="/about" 
+                            element={<About/>} 
+                            errorElement={<Error />} 
+                        />, 
+                        <Route 
+                            path="/contact" 
+                            element={<Contact/>} 
+                            errorElement={<Error />} 
+                        />,
+                        <Route 
+                            path="/restaurants/:resId" 
+                            element={<RestaurantMenu/>} 
+                            errorElement={<Error />} 
+                        />
+                    ]
+                } />
+            <Route path="/about" element={<About/>} errorElement={<Error />} />
+            <Route path="/contact" element={<Contact/>} errorElement={<Error />} />
+        </Routes>
+    </BrowserRouter>
+); // rendering the functional component
 
 
 
