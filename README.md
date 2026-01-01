@@ -59,3 +59,7 @@ Note: We cannot use nore than one time default export/import in one file.
 # Two types of Routing 
 - Client Side Routing
 - Server Side Routing
+
+# Lifecycle of Components shown in About and UserClass like methods will be load first
+ - Parent - Child relationship
+ - Parent with Multiple Childs relationship 
