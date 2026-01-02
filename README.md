@@ -63,3 +63,11 @@ Note: We cannot use nore than one time default export/import in one file.
 # Lifecycle of Components shown in About and UserClass like methods will be load first
  - Parent - Child relationship
  - Parent with Multiple Childs relationship 
+
+ # How to optimize a large scale React App
+ - Chunking
+ - Code Splitting
+ - Dynamic Bundling
+ - Lazy Loading
+ - On Demand Loading
+ - Dynamic Import

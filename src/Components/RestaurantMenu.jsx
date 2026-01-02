@@ -1,17 +1,14 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu.jsx";
 
 
 const RestaurantMenu = () => {
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
+    const { resId } = useParams();
 
-    const fetchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=229");
-        const json = await data.json();
-        console.log(json);
-    };
+    // Creating a custom hook - To maintian the Single Responsibility Principle
+    const resInfo = useRestaurantMenu(resId);
 
     return (
         <div className="menu">

@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import resObj from "../utils/mockData.js";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus.jsx";
 
 
 const Body = () => { 
@@ -22,10 +23,15 @@ const fetchData = async () => {
 
     // Optional Chaining
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-
+    
 };
 
+
+// Ensure hooks are called in the same order on every render
+const onlineStatus = useOnlineStatus();
+if (onlineStatus === false) {
+    return <h1>You are offline</h1>;
+}
 
 // Conditional Rendering
 if (listOfRestaurants.length === 0) {
@@ -60,6 +66,9 @@ if (listOfRestaurants.length === 0) {
     //     }
     // ];
 
+
+    
+    
     return (
         <div className="body">
             <div className="filter">
